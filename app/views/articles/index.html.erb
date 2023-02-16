@@ -1,0 +1,15 @@
+<h1>This is the default article page</h1>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Actions avaliable</th>
+    </tr>
+    <%@articles.each do |article|%>
+    <tr>
+        <td><%=article.title%></td>
+        <td><%=article.description%></td>
+        <td>Action performed</td>
+    </tr>
+    <%end%>
+</table>
