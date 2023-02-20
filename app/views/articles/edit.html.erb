@@ -1,0 +1,16 @@
+<h1>This is Edit Space for form</h1>
+<%= form_with(model: @article) do |data| %>
+<p>
+<%= data.label :title%>
+<br>
+<%= data.text_field :title%>
+</p>
+<p>
+<%= data.label :description%>
+<br>
+<%= data.text_area :description%>
+</p>
+<p>
+<%= data.submit%>
+</p>
+<%end%>
