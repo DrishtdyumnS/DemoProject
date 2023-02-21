@@ -1,0 +1,22 @@
+<h1>This is SignUp Page  </h1>
+<%= render 'shared/errors', obj: @user %>
+<%= form_with scope: :user, url: users_path ,local: true do |data| %>
+<p>
+<%= data.label :username%>
+<br>
+<%= data.text_field :username%>
+</p>
+<p>
+<%= data.label :email%>
+<br>
+<%= data.text_field :email%>
+</p>
+<p>
+<%= data.label :password%>
+<br>
+<%= data.text_field :password%>
+</p>
+<p>
+<%= data.submit%>
+</p>
+<%end%>

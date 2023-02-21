@@ -3,7 +3,8 @@ Rails.application.routes.draw do
     root 'pages#landingpage'
     get 'aboutus', to:'pages#aboutus'
     resources :articles
-    resources :users
+    get 'signup', to:'users#new'
+    resources :users, except:[:new]
 
   # Defines the root path route ("/")
   # root "articles#index"
