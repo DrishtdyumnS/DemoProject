@@ -1,0 +1,16 @@
+<h1 class="text-center" > This is Login Page </h1> 
+<%= form_with scope: :user, url: login_path ,local: true do |data| %>
+<p>
+<%= data.label :email%>
+<br>
+<%= data.text_field :email%>
+</p>
+<p>
+<%= data.label :password%>
+<br>
+<%= data.text_field :password, placeholder: "Enter Your Password "%>
+</p>
+<p>
+<%= data.submit%>
+</p>
+<%end%>

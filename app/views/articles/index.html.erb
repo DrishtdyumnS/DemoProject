@@ -1,17 +1,38 @@
-<h1>This is the default article page</h1>
+<h1 class="text-center">This is the default article page</h1>
+<br>
+<div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @articles %>
+    </div>
+    <%= will_paginate @articles, :container => false %>
+  </div>
+  <br>
 <table>
     <tr>
         <th>Title</th>
         <th>Description</th>
+        <th>Author</th>
         <th>Actions avaliable</th>
     </tr>
     <%@articles.each do |article|%>
     <tr>
         <td><%=article.title%></td>
         <td><%=article.description%></td>
-        <td><%=link_to 'Edit', edit_article_path(article)%></td>
+        </td>
+        <td><%=link_to article.user.username,user_path(article.user)%></td>
         <td><%=link_to 'Show', article_path(article)%></td>
+        <%if logged_in? and (current_user == article.user or current_user.admin?)%>
+        <td><%=link_to 'Edit', edit_article_path(article)%></td>
         <td><%= button_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
     </tr>
     <%end%>
 </table>
+<br>
+<div class="digg_pagination">
+    <div class="page_info">
+      <%= page_entries_info @articles %>
+    </div>
+    <%= will_paginate @articles, :container => false %>
+  </div>
+

@@ -6,9 +6,19 @@ ruby "3.1.3"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.2"
 
+gem 'byebug', '~> 9.0', '>= 9.0.5'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
+gem 'bootstrap', '~> 4.2.1'
+
+gem 'will_paginate', '~> 3.3'
+
+
+gem 'jquery-rails'
+
+gem 'sassc-rails', '>= 2.1.0'
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 1.4"
 

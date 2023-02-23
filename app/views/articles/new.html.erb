@@ -1,5 +1,5 @@
-<h1>THis is new article creation space</h1>
 <%= render 'shared/errors', obj: @article %>
+<h1 class="text-center">THis is new article creation space</h1>
 <%= form_with scope: :article, url: articles_path ,local: true do |data| %>
 <p>
 <%= data.label :title%>

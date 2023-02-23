@@ -1,0 +1,30 @@
+
+<h2 class="text-center">Welcome back <%=@user.username%></h2>
+<%=gravator_for  @user %>
+<h3 class="text-center">User Articles - <%=@user.articles.length%></h3>
+<%if logged_in? and @user == current_user%>
+<%= link_to 'Edit User Profile', edit_user_path(@user) , class: "text-center"%>
+<%= button_to 'Delete User Profile', user_path(current_user) ,class: "text-center text-danger", method: :delete ,data: { confirm: "Are You Sure?"}%>
+<%end%>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Actions avaliable</th>
+        <th>Timeline</th>
+    </tr>
+    <%@user.articles.each do |article|%>
+    <tr>
+        <td><%= link_to article.title, article_path(article)%></td>
+        <td><%=article.description%></td>
+        <td>
+        <td><%=link_to 'Show', article_path(article)%></td>
+        <%if logged_in? and (current_user == article.user or current_user.admin?)%>
+        <td><%=link_to 'Edit', edit_article_path(article)%></td>
+        <td><%= button_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
+        </td>
+        <td>Joined <%=time_ago_in_words(article.created_at) %></td>
+    </tr>
+    <%end%>
+</table>

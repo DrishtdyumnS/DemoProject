@@ -1,5 +1,5 @@
-<h1>This is SignUp Page  </h1>
 <%= render 'shared/errors', obj: @user %>
+<h1 class="text-center">This is SignUp Page  </h1>
 <%= form_with scope: :user, url: users_path ,local: true do |data| %>
 <p>
 <%= data.label :username%>
