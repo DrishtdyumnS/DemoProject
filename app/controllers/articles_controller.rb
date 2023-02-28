@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-    before_action :is_logged_in? , except: [:index, :show]
+    before_action :logged_in? , except: [:index, :show]
     before_action :is_same? , only: [:update ,:destroy ,:edit]
 
     def show
@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
     private
     def is_same?
         @article = Article.find(params[:id])
-        if current_user != @article.user and !current_user.admin?
+        if current_user != @article.user 
             redirect_to articles_path
         end
     end

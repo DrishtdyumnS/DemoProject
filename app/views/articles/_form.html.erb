@@ -1,0 +1,15 @@
+<%= form_with model: @article, url: articles_path ,local: true do |data| %>
+<p>
+<%= data.label :title%>
+<br>
+<%= data.text_field :title%>
+</p>
+<p>
+<%= data.label :description%>
+<br>
+<%= data.text_area :description%>
+</p>
+<p>
+<%= data.submit%>
+</p>
+<%end%>

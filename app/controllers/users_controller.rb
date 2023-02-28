@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-    before_action :is_logged_in? , except: [:index, :show]
     before_action :is_same? , only: [:edit ,:update ,:destroy]
     def index
         @users = User.all

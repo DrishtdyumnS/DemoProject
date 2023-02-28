@@ -1,4 +1,7 @@
-<h1 class="text-center">This is the default article page</h1>
+
+<section class="h-100 gradient-custom-2">
+  <div class="container py-5 h-100">
+<h1 class="text-center">Display All Articles</h1>
 <br>
 <div class="digg_pagination">
     <div class="page_info">
@@ -7,27 +10,20 @@
     <%= will_paginate @articles, :container => false %>
   </div>
   <br>
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Author</th>
-        <th>Actions avaliable</th>
-    </tr>
     <%@articles.each do |article|%>
-    <tr>
-        <td><%=article.title%></td>
-        <td><%=article.description%></td>
-        </td>
-        <td><%=link_to article.user.username,user_path(article.user)%></td>
-        <td><%=link_to 'Show', article_path(article)%></td>
+      <div class="card mb-3" style="width: 18rem;" >
+        <div class="card-body">
+          <h5 class="card-title text-truncate"><%=article.title%></h5>
+          <h6 class="card-subtitle mb-2 text-muted">by - <%=link_to article.user.username,user_path(article.user)%></h6>
+          <p class="card-text text-truncate"><%=article.description%></p>
+        <%=link_to 'Show', article_path(article)%>
         <%if logged_in? and (current_user == article.user or current_user.admin?)%>
-        <td><%=link_to 'Edit', edit_article_path(article)%></td>
-        <td><%= button_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%=link_to 'Edit', edit_article_path(article)%>
+        <%= button_to 'Delete', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %>
         <%end%>
-    </tr>
+        </div>
+      </div>
     <%end%>
-</table>
 <br>
 <div class="digg_pagination">
     <div class="page_info">
@@ -35,4 +31,5 @@
     </div>
     <%= will_paginate @articles, :container => false %>
   </div>
-
+  </div>
+</section>

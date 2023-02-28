@@ -1,22 +1,25 @@
 <%= render 'shared/errors', obj: @user %>
-<h1 class="text-center">This is Edit Page  </h1>
-<%= form_with(model: @user) do |data| %>
-<p>
-<%= data.label :username%>
-<br>
-<%= data.text_field :username%>
-</p>
-<p>
-<%= data.label :email%>
-<br>
-<%= data.text_field :email%>
-</p>
-<p>
-<%= data.label :password%>
-<br>
-<%= data.text_field :password%>
-</p>
-<p>
-<%= data.submit%>
-</p>
-<%end%>
+<section class="h-100 gradient-custom-2">
+  <div class=" card mgb-5 container py-5 h-100"><h1 class="text-center">This is Edit Page  </h1>
+    <%= form_with(model: @user) do |data| %>
+        <p>
+        <%= data.label :username%>
+        <br>
+        <%= data.text_field :username%>
+        </p>
+        <p>
+        <%= data.label :email%>
+        <br>
+        <%= data.text_field :email%>
+        </p>
+        <p>
+        <%= data.label :password%>
+        <br>
+        <%= data.text_field :password%>
+        </p>
+        <p>
+        <%= data.submit %>
+        </p>
+    <%end%>
+  </div>
+</section>

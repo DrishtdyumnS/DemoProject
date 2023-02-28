@@ -1,17 +1,6 @@
 <%= render 'shared/errors', obj: @article %>
-<h1 class="text-center">THis is new article creation space</h1>
-<%= form_with scope: :article, url: articles_path ,local: true do |data| %>
-<p>
-<%= data.label :title%>
-<br>
-<%= data.text_field :title%>
-</p>
-<p>
-<%= data.label :description%>
-<br>
-<%= data.text_area :description%>
-</p>
-<p>
-<%= data.submit%>
-</p>
-<%end%>
+<section class="h-100 gradient-custom-2">
+    <div class="card container py-5 h-100"><h1 class="text-center">Create New Article </h1>
+    <%=render 'form'%>
+    </div>
+</section>
